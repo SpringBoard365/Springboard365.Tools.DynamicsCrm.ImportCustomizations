@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <copyright>Copyright $author$ 2017</copyright>
+    <tags>Import Crm Solution and Customizations Tool Microsoft Dynamics CRM 2011 2013 2015 2016 SDK XRM 365 On Premise On-Premise Online</tags>
+  </metadata>
+</package>
