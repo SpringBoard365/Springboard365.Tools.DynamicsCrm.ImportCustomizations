@@ -14,20 +14,20 @@
 
     public class ImportCrmCustomization : CrmToolBase
     {
-        private readonly ImportCrmCustomizationParameters parameters;
-        private readonly ILog logger;
+        private readonly ILog logger = LogManager.GetLogger(typeof(ImportCrmCustomization));
+        private ImportCrmCustomizationParameters parameters;
 
         public ImportCrmCustomization(string[] args)
             : base(new ImportCrmCustomizationParameters(), args)
         {
-            logger = LogManager.GetLogger(typeof(ImportCrmCustomization));
-            parameters = (ImportCrmCustomizationParameters)CommandLineParameterBase;
         }
 
         public override void Run()
         {
             try
             {
+                parameters = (ImportCrmCustomizationParameters)CommandLineParameterBase;
+
                 var byteArray = ReadCustomizationsFile();
                 ImportCustomizationsFile(byteArray);
                 PublishCustomizationsFile();

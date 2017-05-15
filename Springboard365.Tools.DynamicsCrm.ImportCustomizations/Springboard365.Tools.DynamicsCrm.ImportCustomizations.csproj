@@ -55,8 +55,8 @@
       <HintPath>..\packages\Springboard365.Tools.CommandLine.Core.1.1.0\lib\net40\Springboard365.Tools.CommandLine.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Springboard365.Tools.DynamicsCrm.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
-      <HintPath>..\packages\Springboard365.Tools.DynamicsCrm.Common.1.0.0\lib\net40\Springboard365.Tools.DynamicsCrm.Common.dll</HintPath>
+    <Reference Include="Springboard365.Tools.DynamicsCrm.Common, Version=1.1.2.0, Culture=neutral, processorArchitecture=AMD64">
+      <HintPath>..\packages\Springboard365.Tools.DynamicsCrm.Common.1.1.2\lib\net40\Springboard365.Tools.DynamicsCrm.Common.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
