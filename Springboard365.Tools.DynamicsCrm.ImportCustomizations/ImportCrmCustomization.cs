@@ -10,7 +10,6 @@
     using Microsoft.Crm.Sdk.Messages;
     using Microsoft.Xrm.Sdk;
     using Microsoft.Xrm.Sdk.Query;
-    using Springboard365.Tools.CommandLine.Core;
     using Springboard365.Tools.DynamicsCrm.Common;
 
     public class ImportCrmCustomization : CrmToolBase
@@ -63,7 +62,7 @@
 
         private IEnumerable<Guid> GetPublishedWorkflowIds()
         {
-            throw new NotImplementedException();
+            return new List<Guid>();
         }
 
         private void AssignWorkflowToCurrentUser(Guid workflowId)
