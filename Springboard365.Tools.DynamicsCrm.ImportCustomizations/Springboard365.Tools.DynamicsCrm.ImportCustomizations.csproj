@@ -83,7 +83,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="NuGet\NuGetPush.bat" />
     <None Include="packages.config" />
+    <None Include="Springboard365.Tools.DynamicsCrm.ImportCustomizations.nuspec" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
