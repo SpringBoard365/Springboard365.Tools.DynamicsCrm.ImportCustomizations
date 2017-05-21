@@ -6,7 +6,6 @@
     using System.Linq;
     using System.Text.RegularExpressions;
     using System.Xml;
-    using log4net;
     using Microsoft.Crm.Sdk.Messages;
     using Microsoft.Xrm.Sdk;
     using Microsoft.Xrm.Sdk.Query;
@@ -14,7 +13,6 @@
 
     public class ImportCrmCustomization : CrmToolBase
     {
-        private readonly ILog logger = LogManager.GetLogger(typeof(ImportCrmCustomization));
         private ImportCrmCustomizationParameters parameters;
 
         public ImportCrmCustomization(string[] args)
@@ -29,22 +27,15 @@
 
         public override void Run()
         {
-            try
-            {
-                var byteArray = ReadCustomizationsFile();
-                ImportCustomizationsFile(byteArray);
-                PublishCustomizationsFile();
-                PublishAllDuplicateDetectionRules();
-            }
-            catch (Exception exception)
-            {
-                logger.Error(exception.Message, exception);
-            }
+            var byteArray = ReadCustomizationsFile();
+            ImportCustomizationsFile(byteArray);
+            PublishCustomizationsFile();
+            PublishAllDuplicateDetectionRules();
         }
 
         private byte[] ReadCustomizationsFile()
         {
-            logger.Info("Reading customization file...");
+            Console.WriteLine("Reading customization file...");
             return File.ReadAllBytes(parameters.FileName);
         }
 
@@ -113,7 +104,7 @@
             }
             catch (Exception)
             {
-                logger.Warn("Unable to Save Import File to disk");
+                Console.WriteLine("Unable to Save Import File to disk");
             }
         }
 
@@ -156,7 +147,7 @@
                 var errorText = firstChildNode.Attributes["errortext"].Value;
                 if (result == "failure")
                 {
-                    logger.WarnFormat("{0} result: {1} Code: {2} Description: {3}", friendlyName, result, errorCode, errorText);
+                    Console.WriteLine("{0} result: {1} Code: {2} Description: {3}", friendlyName, result, errorCode, errorText);
                 }
             }
         }
@@ -188,7 +179,7 @@
             }
 
             var englishElementName = SplitNodeName(elementName);
-            logger.InfoFormat("Solution {0}: {1}", englishElementName, xmlNode.InnerText);
+            Console.WriteLine("Solution {0}: {1}", englishElementName, xmlNode.InnerText);
         }
 
         private object SplitNodeName(string elementName)
@@ -203,7 +194,7 @@
 
         private void PublishCustomizationsFile()
         {
-            logger.Info("Publishing customizations...");
+            Console.WriteLine("Publishing customizations...");
             OrganizationService.Execute(new PublishAllXmlRequest());
         }
 
