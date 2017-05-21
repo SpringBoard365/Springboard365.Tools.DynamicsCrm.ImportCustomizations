@@ -22,12 +22,15 @@
         {
         }
 
+        public override void Initialize()
+        {
+            parameters = (ImportCrmCustomizationParameters)CommandLineParameterBase;
+        }
+
         public override void Run()
         {
             try
             {
-                parameters = (ImportCrmCustomizationParameters)CommandLineParameterBase;
-
                 var byteArray = ReadCustomizationsFile();
                 ImportCustomizationsFile(byteArray);
                 PublishCustomizationsFile();
