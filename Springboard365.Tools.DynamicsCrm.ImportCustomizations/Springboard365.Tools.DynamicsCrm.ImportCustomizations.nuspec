@@ -8,7 +8,16 @@
     <owners>$author$</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
+	<licenseUrl>https://raw.githubusercontent.com/SpringBoard365/$id$/master/LICENSE</licenseUrl>
+	<projectUrl>https://github.com/SpringBoard365/$id$</projectUrl>
     <copyright>Copyright $author$ 2017</copyright>
     <tags>Import Crm Solution and Customizations Tool Microsoft Dynamics CRM 2011 2013 2015 2016 SDK XRM 365 On Premise On-Premise Online</tags>
   </metadata>
+  <files>
+	<file src="bin\$configuration$\Springboard365.Tools.CommandLine.Core.dll" target="tools\Springboard365.Tools.CommandLine.Core.dll" />
+	<file src="bin\$configuration$\Springboard365.Tools.DynamicsCrm.Common.dll" target="tools\Springboard365.Tools.DynamicsCrm.Common.dll" />
+	<file src="bin\$configuration$\Microsoft.Crm.Sdk.Proxy.dll" target="tools\Microsoft.Crm.Sdk.Proxy.dll" />
+	<file src="bin\$configuration$\Microsoft.Xrm.Sdk.dll" target="tools\Microsoft.Xrm.Sdk.dll" />
+	<file src="bin\$configuration$\Microsoft.IdentityModel.dll" target="tools\Microsoft.IdentityModel.dll" />
+  </files>
 </package>
