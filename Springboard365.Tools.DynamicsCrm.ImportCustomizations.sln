@@ -7,6 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImportCustomizations", "src
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{BCD83E23-2B6B-4693-AD48-5D66A047D3B9}"
 	ProjectSection(SolutionItems) = preProject
+		.travis.yml = .travis.yml
 		Build\ImportCustomizations.exe.config = Build\ImportCustomizations.exe.config
 		src\ImportCustomizations.nuspec = src\ImportCustomizations.nuspec
 		Build\NuGetPush.bat = Build\NuGetPush.bat
