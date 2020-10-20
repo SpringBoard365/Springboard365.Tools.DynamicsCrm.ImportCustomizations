@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$id$</title>
+    <authors>$author$</authors>
+    <repository type="git" url="$repo$"/>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <copyright>Copyright $author$ 2020</copyright>
+    <tags>$tags$</tags>
+  </metadata>
+  <dependencies>
+    <group targetFramework=".NETFramework4.6.2">
+      <dependency id="Springboard365.Tools.DynamicsCrm.Common" version="2.0.0" />
+      <dependency id="Springboard365.Tools.CommandLine.Core" version="1.1.0" />
+      <dependency id="Microsoft.CrmSdk.XrmTooling.CoreAssembly" version="9.1.0.51" />
+      <dependency id="Microsoft.CrmSdk.CoreAssemblies" version="9.0.2.23" />
+      <dependency id="Microsoft.CrmSdk.Deployment" version="9.0.2.23" />
+      <dependency id="Microsoft.CrmSdk.Workflow" version="9.0.2.23" />
+      <dependency id="Microsoft.IdentityModel.Clients.ActiveDirectory" version="3.19.8" />
+      <dependency id="Microsoft.Rest.ClientRuntime" version="2.3.20" />
+      <dependency id="Newtonsoft.Json" version="10.0.3" />
+    </group>
+  </dependencies>
+  <files>
+    <file src="bin\$Configuration$\Springboard365.Tools.DynamicsCrm.ImportCustomizations.exe" target="tools\ImportCustomizations.exe" />
+    <file src="..\Build\ImportCustomizations.exe.config" target="tools\ImportCustomizations.exe.config" />
+    <file src="bin\$Configuration$\Microsoft.Crm.Sdk.Proxy.dll" target="tools" />
+    <file src="bin\$Configuration$\Microsoft.IdentityModel.Clients.ActiveDirectory.dll" target="tools" />
+    <file src="bin\$Configuration$\Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll" target="tools" />
+    <file src="bin\$Configuration$\Microsoft.Crm.Sdk.Proxy.dll" target="tools" />
+    <file src="bin\$Configuration$\Microsoft.Rest.ClientRuntime.dll" target="tools" />
+    <file src="bin\$Configuration$\Microsoft.Xrm.Sdk.Deployment.dll" target="tools" />
+    <file src="bin\$Configuration$\Microsoft.Xrm.Sdk.dll" target="tools" />
+    <file src="bin\$Configuration$\Microsoft.Xrm.Sdk.Workflow.dll" target="tools" />
+    <file src="bin\$Configuration$\Microsoft.Xrm.Tooling.Connector.dll" target="tools" />
+    <file src="bin\$Configuration$\Newtonsoft.Json.dll" target="tools" />
+    <file src="bin\$Configuration$\Springboard365.Tools.CommandLine.Core.dll" target="tools" />
+    <file src="bin\$Configuration$\Springboard365.Tools.DynamicsCrm.Common.dll" target="tools" />
+  </files>
+</package>

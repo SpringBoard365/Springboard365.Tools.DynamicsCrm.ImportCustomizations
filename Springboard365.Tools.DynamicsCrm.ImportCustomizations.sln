@@ -1,9 +1,16 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30503.244
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Springboard365.Tools.DynamicsCrm.ImportCustomizations", "Springboard365.Tools.DynamicsCrm.ImportCustomizations\Springboard365.Tools.DynamicsCrm.ImportCustomizations.csproj", "{2C15F602-15C3-48D1-9FE0-ACF1FBFAD5D0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImportCustomizations", "src\ImportCustomizations.csproj", "{2C15F602-15C3-48D1-9FE0-ACF1FBFAD5D0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{BCD83E23-2B6B-4693-AD48-5D66A047D3B9}"
+	ProjectSection(SolutionItems) = preProject
+		Build\ImportCustomizations.exe.config = Build\ImportCustomizations.exe.config
+		src\ImportCustomizations.nuspec = src\ImportCustomizations.nuspec
+		Build\NuGetPush.bat = Build\NuGetPush.bat
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,5 +25,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D0E82D0D-38CB-4A6E-B06E-07CC2E331537}
 	EndGlobalSection
 EndGlobal
