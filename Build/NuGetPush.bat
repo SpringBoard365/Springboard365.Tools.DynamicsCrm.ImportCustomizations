@@ -1,5 +1,5 @@
 @echo off
-SET packageVersion=2.0.0-alpha01
+SET packageVersion=2.0.0
 
 SET configuration=Release
 SET id=Springboard365.Tools.DynamicsCrm.ImportCustomizations
