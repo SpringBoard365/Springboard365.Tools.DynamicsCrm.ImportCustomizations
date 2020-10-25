@@ -24,7 +24,6 @@
     <DebugType>full</DebugType>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
@@ -34,7 +33,6 @@
     <DebugType>pdbonly</DebugType>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
@@ -66,11 +64,11 @@
       <HintPath>$(SolutionDir)\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="PresentationFramework" />
-    <Reference Include="Springboard365.Tools.CommandLine.Core, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>$(SolutionDir)\packages\Springboard365.Tools.CommandLine.Core.1.1.0\lib\net40\Springboard365.Tools.CommandLine.Core.dll</HintPath>
+    <Reference Include="Springboard365.Tools.CommandLine.Core, Version=2.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>$(SolutionDir)\packages\Springboard365.Tools.CommandLine.Core.2.0.3\lib\net462\Springboard365.Tools.CommandLine.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Springboard365.Tools.DynamicsCrm.Common, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>$(SolutionDir)\packages\Springboard365.Tools.DynamicsCrm.Common.2.0.0\lib\net462\Springboard365.Tools.DynamicsCrm.Common.dll</HintPath>
+    <Reference Include="Springboard365.Tools.DynamicsCrm.Common, Version=2.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>$(SolutionDir)\packages\Springboard365.Tools.DynamicsCrm.Common.2.0.2\lib\net462\Springboard365.Tools.DynamicsCrm.Common.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Activities" />

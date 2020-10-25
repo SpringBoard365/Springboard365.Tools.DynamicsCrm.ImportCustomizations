@@ -9,6 +9,7 @@
     using Microsoft.Crm.Sdk.Messages;
     using Microsoft.Xrm.Sdk;
     using Microsoft.Xrm.Sdk.Query;
+    using Springboard365.Tools.CommandLine.Core;
     using Springboard365.Tools.DynamicsCrm.Common;
 
     public class ImportCrmCustomization : CrmToolBase
@@ -35,7 +36,7 @@
 
         private byte[] ReadCustomizationsFile()
         {
-            Console.WriteLine("Reading customization file...");
+            ConsoleLogger.LogMessage("Reading customization file...");
             return File.ReadAllBytes(parameters.FileName);
         }
 
@@ -64,7 +65,7 @@
             var assignRequest = new AssignRequest
             {
                 Assignee = new EntityReference("systemuser", GetCurrentUserId()),
-                Target = new EntityReference("workflow", workflowId)
+                Target = new EntityReference("workflow", workflowId),
             };
             OrganizationService.Execute(assignRequest);
         }
@@ -82,7 +83,7 @@
                 {
                     CustomizationFile = compressedXml,
                     OverwriteUnmanagedCustomizations = true, PublishWorkflows = true,
-                    ImportJobId = importJobId
+                    ImportJobId = importJobId,
                 };
                 OrganizationService.Execute(importSolutionRequest);
             }
@@ -99,12 +100,15 @@
             {
                 var importJob = OrganizationService.Retrieve("importjob", importJobId, new ColumnSet("data", "solutionname"));
                 var importJobData = importJob.GetAttributeValue<string>("data");
-                File.WriteAllText(string.Format("{0}\\import_log_file{1}.xml", parameters.ImportJobFileSavePath, DateTime.UtcNow.ToString("yyyyMMddhhmmss")), importJobData);
+                var dateTimeString = DateTime.UtcNow.ToString("yyyyMMddhhmmss");
+                var importJobFileSavePath = string.IsNullOrEmpty(parameters.ImportJobFileSavePath) ? "." : parameters.ImportJobFileSavePath;
+                var filePath = $"{importJobFileSavePath}\\import_log_file{dateTimeString}.xml";
+                File.WriteAllText(filePath, importJobData);
                 OutputImportJobData(importJobData);
             }
             catch (Exception)
             {
-                Console.WriteLine("Unable to Save Import File to disk");
+                ConsoleLogger.LogMessage("Unable to Save Import File to disk");
             }
         }
 
@@ -118,9 +122,9 @@
             WriteErrorToConsole(xmlDocument, "//entities/entity");
         }
 
-        private void WriteErrorToConsole(XmlDocument xmlDocument, string xPath)
+        private void WriteErrorToConsole(XmlDocument xmlDocument, string xpath)
         {
-            var nodeList = xmlDocument.SelectNodes(xPath);
+            var nodeList = xmlDocument.SelectNodes(xpath);
             if (nodeList == null)
             {
                 return;
@@ -134,7 +138,7 @@
                 }
 
                 var localizedName = node.Attributes["LocalizedName"].ToString();
-                var friendlyName = GetFriendlyName(xPath, localizedName);
+                var friendlyName = GetFriendlyName(xpath, localizedName);
                 var firstChildNode = node.FirstChild;
 
                 if (firstChildNode == null || firstChildNode.Attributes == null)
@@ -147,19 +151,19 @@
                 var errorText = firstChildNode.Attributes["errortext"].Value;
                 if (result == "failure")
                 {
-                    Console.WriteLine("{0} result: {1} Code: {2} Description: {3}", friendlyName, result, errorCode, errorText);
+                    ConsoleLogger.LogMessage($"{friendlyName} result: {result} Code: {errorCode} Description: {errorText}");
                 }
             }
         }
 
-        private string GetFriendlyName(string xPath, string localizedName)
+        private string GetFriendlyName(string xpath, string localizedName)
         {
             if (string.IsNullOrEmpty(localizedName))
             {
                 return localizedName;
             }
 
-            var stringArray = xPath.Split('/');
+            var stringArray = xpath.Split('/');
             return stringArray[stringArray.Length - 1];
         }
 
@@ -179,7 +183,7 @@
             }
 
             var englishElementName = SplitNodeName(elementName);
-            Console.WriteLine("Solution {0}: {1}", englishElementName, xmlNode.InnerText);
+            ConsoleLogger.LogMessage($"Solution {englishElementName}: {xmlNode.InnerText}");
         }
 
         private object SplitNodeName(string elementName)
@@ -188,13 +192,13 @@
             var matchCollection = regex.Matches(elementName);
 
             var toReturn = matchCollection.Cast<Match>().Aggregate(string.Empty, (s, match) => s + (match.Value + " "));
-                
+
             return toReturn.Trim();
         }
 
         private void PublishCustomizationsFile()
         {
-            Console.WriteLine("Publishing customizations...");
+            ConsoleLogger.LogMessage("Publishing customizations...");
             OrganizationService.Execute(new PublishAllXmlRequest());
         }
 
